@@ -1,0 +1,27 @@
+{
+  "name": "commerce-karma-sdk",
+  "version": "0.1.0",
+  "description": "An SDK to interact with the Commerce Karma API.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commerce-karma/commerce-karma-sdk.git"
+  },
+  "keywords": [
+    "commerce"
+  ],
+  "author": "eTech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/commerce-karma/commerce-karma-sdk/issues"
+  },
+  "homepage": "https://github.com/commerce-karma/commerce-karma-sdk#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "eslint": "^9.26.0",
+    "typescript-eslint": "^8.32.0"
+  }
+}

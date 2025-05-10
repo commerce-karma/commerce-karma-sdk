@@ -22,7 +22,7 @@ jobs:
           version: 8
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --ignore-scripts
 
       - name: Run eslint on changed files
         run: npx eslint $(git diff --name-only HEAD | xargs)

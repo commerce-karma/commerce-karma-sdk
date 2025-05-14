@@ -49,6 +49,8 @@ export default function Connect({
   return typeof customJSX === "function" ? (
     customJSX(jsxProps)
   ) : (
-    <button {...jsxProps} {...props}>{jsxProps.disabled ? "Connected" : "Connect"}</button>
+    <button {...jsxProps} {...props}>
+      {jsxProps.disabled ? "Connected" : "Connect"}
+    </button>
   );
 }

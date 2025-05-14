@@ -8,10 +8,10 @@ export default function authorize(location?: string) {
   const urlParams = new URLSearchParams(windowLocation);
   const apiKey = urlParams.get("CkApiKey");
 
-  const cookieIndex = document.cookie.split(";").indexOf("commerce-karma-api-key")
+  const cookieIndex = document.cookie.split(";").indexOf("commerce-karma-api-key");
 
-  if(cookieIndex !== -1) {
-    return document.cookie.split(";")[cookieIndex]
+  if (cookieIndex !== -1) {
+    return document.cookie.split(";")[cookieIndex];
   }
 
   document.cookie = `commerce-karma-api-key=${apiKey};`;

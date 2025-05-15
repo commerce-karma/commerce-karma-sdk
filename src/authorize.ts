@@ -12,6 +12,8 @@ export default function authorize(location?: string) {
 
   if (cookieIndex !== -1) {
     return document.cookie.split(";")[cookieIndex];
+  } else if (!apiKey && cookieIndex === -1) {
+    throw new Error("Error failed to authorized");
   }
 
   document.cookie = `commerce-karma-api-key=${apiKey};`;

@@ -10,12 +10,19 @@ import type { FindClient } from "../client";
  * @param nameProps Props for the `span` container element of the name.
  * @param ratingProps Props for the `span` container element of the rating.
  */
-export default function Client({ query, customJSX, linkProps, ratingLinkProps, nameProps, ratingProps }: {
-    query: FindClient;
-    customJSX?: (props: ClientT | undefined) => JSX.Element;
-    linkProps?: HTMLAttributes<HTMLAnchorElement>;
-    ratingLinkProps?: HTMLAttributes<HTMLAnchorElement>;
-    nameProps?: HTMLAttributes<HTMLSpanElement>;
-    ratingProps?: HTMLAttributes<HTMLSpanElement>;
+export default function Client({
+  query,
+  customJSX,
+  linkProps,
+  ratingLinkProps,
+  nameProps,
+  ratingProps
+}: {
+  query: FindClient;
+  customJSX?: (props: ClientT | undefined) => JSX.Element;
+  linkProps?: HTMLAttributes<HTMLAnchorElement>;
+  ratingLinkProps?: HTMLAttributes<HTMLAnchorElement>;
+  nameProps?: HTMLAttributes<HTMLSpanElement>;
+  ratingProps?: HTMLAttributes<HTMLSpanElement>;
 }): JSX.Element;
 //# sourceMappingURL=Client.d.ts.map

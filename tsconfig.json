@@ -1,12 +1,25 @@
 {
-  "exclude": ["src/react"],
+  "exclude": [
+    "src/react",
+    "dist",
+    "node_modules",
+    "**/*.js",
+    "**/*.mjs",
+    "commitlint.config.js",
+    "eslint.config.mjs",
+    "rollup.config.mjs",
+    "scripts",
+    "docs"
+  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "composite": true,
+    "composite": false,
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": false,
     "emitDecoratorMetadata": false,
     "esModuleInterop": true,
     "experimentalDecorators": false,
@@ -16,7 +29,7 @@
     "isolatedModules": true,
     "lib": ["ESNext", "DOM"],
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
@@ -29,6 +42,6 @@
     "sourceMap": false,
     "strict": true,
     "target": "ESNext",
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
   }
 }

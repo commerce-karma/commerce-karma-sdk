@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { JSX, HTMLAttributes } from "react";
 import type { Client as ClientT } from "../types/client";
 import { findClient } from "../client";

@@ -1,16 +1,31 @@
 import { defineConfig } from "rollup";
 import typescript from "rollup-plugin-typescript2";
 import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import babel from "@rollup/plugin-babel";
-import { terser } from "rollup-plugin-terser";
 import execute from "rollup-plugin-execute";
 
 export default defineConfig([
   {
     input: "src/index.ts",
-    output: { dir: "dist" },
-    plugins: [commonjs(), typescript({ clean: true }), terser(), execute("node scripts/cleanFile.mjs")]
+    output: {
+      dir: "dist",
+      format: "esm"
+    },
+    plugins: [
+      typescript({
+        clean: true,
+        tsconfig: "./tsconfig.json",
+        tsconfigOverride: {
+          compilerOptions: {
+            emitDeclarationOnly: false,
+            moduleResolution: "node",
+            declarationDir: "dist/types",
+            composite: false
+          }
+        },
+        useTsconfigDeclarationDir: true
+      }),
+      execute("node scripts/cleanFile.mjs")
+    ]
   },
   {
     input: "src/react/index.ts",
@@ -24,7 +39,6 @@ export default defineConfig([
       resolve({
         extensions: [".js", ".jsx", ".ts", ".tsx"]
       }),
-      commonjs(),
       typescript({
         tsconfig: "./tsconfig.react.json",
         tsconfigOverride: {
@@ -34,19 +48,15 @@ export default defineConfig([
             declarationMap: true,
             sourceMap: true,
             outDir: "dist/react",
-            noEmit: false
+            noEmit: false,
+            emitDeclarationOnly: false,
+            moduleResolution: "node",
+            composite: false
           }
         },
         clean: true,
         useTsconfigDeclarationDir: true
       }),
-      babel({
-        babelHelpers: "bundled",
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-        presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
-        exclude: "node_modules/**"
-      }),
-      terser(),
       execute("node scripts/cleanFile.mjs")
     ]
   }

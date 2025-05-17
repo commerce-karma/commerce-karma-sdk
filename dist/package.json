@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "description": "An SDK to interact with the Commerce Karma API.",
   "main": "./index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "lint": "pnpx eslint",
     "lint:fix": "pnpx eslint --fix",

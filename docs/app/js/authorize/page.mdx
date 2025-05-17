@@ -1,0 +1,17 @@
+# `authorize()`
+
+Authorizes a connection to Commerce Karma by getting the api key from the url query params and saving it to cookies. For obtaining the api key see [authorizing](/getting-started/authorize). For authorizing with React you can also use the [`<Connect />`](/react/connect) component.
+
+## Usage
+
+Simply call the authorize function:
+
+```ts
+import { authorize } from "commerce-karma-sdk";
+
+const apiKey = authorize();
+```
+
+You should call authorize only once. It should be called as soon as a connection is approved in the Commerce Karma UI.
+
+If you want the connection to persist across browser you will need to sync this cookie across browser by storing your database.

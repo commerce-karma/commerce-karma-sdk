@@ -1,14 +1,17 @@
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 
-export default defineConfig({
-  plugins: {
-    pluginJs: pluginJs.configs.recommended,
-    tseslint
-  },
-  rules: {
-    "prefer-const": "warn",
-    "no-var": "warn"
+export default defineConfig(
+  { ignores: ["./docs/.next", "./docs/node_modules"] },
+  {
+    plugins: {
+      pluginJs: pluginJs.configs.recommended,
+      tseslint
+    },
+    rules: {
+      "prefer-const": "warn",
+      "no-var": "warn"
+    }
   }
-});
+);

@@ -1,0 +1,20 @@
+# Authorize
+
+After installing the SDK you can now start using it. If you are using React.js you see the [React documentation](/react) otherwise see the [JS/TS documentation](/js). Either way you will need to authorize first. You can choose between the `authorize` function or the `<Conenct />` component.
+
+## How connecting to Commerce Karma works
+
+_If you are using the React component this will be done for you._
+
+Commerce Karma makes use of api keys for connections. However, the user will _never_ interact with these keys directly. To obtain a key redirect users to the `/integration` page of Commerce Karma. You will also need to supply to query params `appDomain` and `redirectTo`.
+
+- `appDomain` This is the url that Commerce Karma will prompt the user to connect to.
+- `redirectTo` This is where Commerce Karma will redirect users after they have connected. This url must include the protocol ie `https://`.
+
+The page will then ask the user if they want to countinue:
+
+![Authorize screen](/authorize-screen.png)
+
+If the users accepts an API key is created and the user is redirected back to your app with a `CkApiKey` query param. **If you are using the JS sdk stop here and see the [JS docs](/js/authorize), read on if you are manually authorizing.**
+
+Finally save the API key as a cookie called `commerce-karma-api-key`. If you want the connection to perist accross browser you will need to sync this cookie accross browser by storing your database.

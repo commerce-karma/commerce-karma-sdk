@@ -1,0 +1,64 @@
+# `<Client />`
+
+An unstyled client widget for react.
+
+## Basic usage
+
+```tsx
+import { Client } from "commerce-karma-sdk/react";
+
+...
+
+return <Client query={email: "johndoe@email.com"}/>
+```
+
+![Client image](/client-image.png)
+
+You can query a single client using the `query` prop. If there are no results a create link is rendered. If there are more than one results the zeroth index is used.
+
+## Customizing the component
+
+First lets have a look at the structure of the component and what each prop modifies:
+
+**Client found:**
+
+{/* prettier-ignore */}
+```tsx
+<a> /*linkProps*/
+  <span>John Doe</span> /*nameProps*/
+  <span><b>5</b> stars</span> /*linkProps*/
+</a>
+```
+
+**Client not found:**
+
+```tsx
+<a>Add client to Commerce Karma</a> /*ratingLinkProps*/
+```
+
+## Rendering custom JSX
+
+To render custom JSX you can pass a `customJSX` prop.
+
+```tsx
+<Client customJSX={(props) => <span>Custom children</span>} />
+```
+
+You now have access to the following props:
+
+```ts
+type Client = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  addresses: string[];
+  reviews?: string[];
+  rating: number;
+  createdBy: String;
+  createdAt: string;
+  updatedAt: string;
+  archivedAt?: Date;
+  deletedAt?: Date;
+};
+```

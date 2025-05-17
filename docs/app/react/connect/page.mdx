@@ -1,0 +1,32 @@
+# `<Connect />`
+
+A simple unstyled pre-built connect button for clientside React. The component works out of the box saving a Commerce Karma API into cookies. Syncing the cookie across browser needs to be done by the host application.
+
+## Basic usage
+
+```tsx
+import { Connect } from "commerce-karma-sdk";
+
+...
+
+return <Connect />
+```
+
+The following will be rendered:
+
+![Connect button](/connect-button.png)
+
+## The component has 2 states
+
+- **Disconnected** - The button displays text prompting the user to connect. On click the user will be redirected to Commerce Karma.
+- **Connected** - After the connection is complete the button is disabled and displays a connected message.
+
+## Customizing the component
+
+In addition to being able to pass all HTML button props you call also render a custom DOM via the `customJSX`.
+
+```tsx
+<Connect customJSX={(props) => <a {...props}>Your custom jsx</a>} />
+```
+
+As seen in the above example you must spread the props in your JSX code.

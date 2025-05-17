@@ -4,5 +4,5 @@ if (!window || !document) {
   );
 }
 
-export { default as Connect } from "./connect";
+export { default as Connect } from "./Connect";
 export { default as Client } from "./Client";

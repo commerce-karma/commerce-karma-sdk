@@ -1,0 +1,27 @@
+# `findRating()`
+
+Find one or more ratings and return a `Rating[]`.
+
+## Basic usage
+
+```ts
+const ratings = await findRating({ paymentEase: 5 }); // Finds all ratings with a payment ease of 5
+```
+
+## Allowed params for querying
+
+```ts
+type FindRatingParams = {
+  id: string | undefined;
+  paymentEase: number | undefined;
+  workEase: number | undefined;
+  wouldRefer: number | undefined;
+  overall: number | undefined;
+  text: string | undefined;
+  customer: string | undefined;
+  createdBy: string | undefined;
+  createdAt: Date | undefined;
+  updatedAt: Date | undefined;
+  archivedAt: Date | undefined;
+};
+```

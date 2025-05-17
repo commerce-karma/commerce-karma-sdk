@@ -1,0 +1,28 @@
+# `findClient()`
+
+Finds one or more find clients and return a `Client[]`.
+
+## Basic usage
+
+```ts
+const client = await findClient({ email: "johndoe@email.com" }); // Returns one client as an email is unique to a client
+```
+
+## Allowed params for querying
+
+```ts
+type FindClient = {
+    id: string | undefined;
+    firstName: string | undefined;
+    lastName: string | undefined;
+    email: string | undefined;
+    phone: string | undefined;
+    address: { ... 5 more } | undefined;
+    reviews: string[] | undefined;
+    rating: number | undefined;
+    createdBy: string | undefined;
+    createdAt: Date | undefined;
+    updatedAt: Date | undefined;
+    archivedAt: Date | undefined;
+}
+```
